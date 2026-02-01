@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # function in bash
 
@@ -10,8 +10,13 @@ function weekday_greet {
     echo "Hope you are working hard, $1! Extra greeting: $2"
 }
 
-echo "Enter a short greeting word:"
+echo "Please enter your name:"
+read name
+
+echo "Enter a greeting or mood:"
 read greeting
+
+day=$(date | cut -d' ' -f1)
 
 if [ "$day" = "Sat" ] || [ "$day" = "Sun" ]; then
     weekend_greet $name $greeting
